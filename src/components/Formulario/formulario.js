@@ -4,7 +4,6 @@ import ListaOpciones from '../ListaOpciones'
 import Boton from '../Boton'
 
 const Formulario = () => {
-
     const manejoEnvio = (event) =>{
         event.preventDefault()
     } 
