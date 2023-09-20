@@ -1,24 +1,22 @@
-.campo-texto{
+.lista-opciones{
     margin: 40px 0;
-    font-family: 'Montserrat', serif;
 }
 
-.campo-texto label{
-    font-family: 'Montserrat', serif;
+.lista-opciones label{
+    color: #212121;
     font-size: 18px;
     font-weight: 600;
-    color: #212121;
+    font-family: 'Montserrat', serif;
 }
 
-.campo-texto input{
-    width: 100%;
-    margin-top: 8px;
+.lista-opciones select{
     display: block;
-    box-sizing: border-box;
     background-color: #FFFFFF;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
     border: none;
-    padding: 30px 20px;
+    margin-top: 8px;
     outline-color: #6278F7;
+    padding: 34px;
     font-size: 16px;
+    width: 100%;
 }
