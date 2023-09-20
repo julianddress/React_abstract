@@ -5,8 +5,12 @@ import Boton from '../Boton'
 
 const Formulario = () => {
 
+    const manejoEnvio = (event) =>{
+        event.preventDefault()
+    } 
+
     return  <section className='formulario'>
-                <form>
+                <form onSubmit={manejoEnvio}>
                     <h2>Rellena el formulario para crear el colaborador</h2>
                     <CampoTexto titulo='Nombre' placeholder='Registrar Nombre' />
                     <CampoTexto titulo='Puesto' placeholder='Registrar Puesto'/>
