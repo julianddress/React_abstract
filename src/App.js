@@ -18,11 +18,7 @@ function App() {
   }
   return (
           <div>
-
-            {/* FORMA DE LLAMAR UNA FUNCION JSX */}
             <Header/>
-            {mostarFormulario === true ? <Formulario /> : <div></div>}
-            {mostarFormulario === true ? <Formulario /> : <></>}
             {mostarFormulario && <Formulario />}
             <MiOrg cambiarMostrar={cambiarMostar}/>
           </div>
