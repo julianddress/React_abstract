@@ -10,6 +10,7 @@ const Formulario = () => {
     const [nombre, actualizarNombre] = useState("")
     const [puesto, actualizarPuesto] = useState("")
     const [foto, actualizarFoto] = useState("")
+    const [equipo, actualizarEquipo] = useState("")
 
     // ACA MOSTRAMOS O VEMOS EL VALOR DEL ESTADO
     // OSEA LE QUITAMOS LA RESPONSABILIDAD A NUESTRO NAVEGADOR 
@@ -18,7 +19,8 @@ const Formulario = () => {
         const DatosEnviar = {
             nombre,
             puesto,
-            foto
+            foto,
+            equipo
         }
 
         console.log(DatosEnviar)
@@ -48,7 +50,10 @@ const Formulario = () => {
                         valor={foto}
                         actualizarValor={actualizarFoto}
                     />
-                    <ListaOpciones/>
+                    <ListaOpciones
+                        valor={equipo}
+                        actualizarEquipo={actualizarEquipo}
+                    />
                     <Boton>Enviar</Boton>
                 </form>
             </section>
