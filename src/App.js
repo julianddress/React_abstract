@@ -6,13 +6,22 @@ import Header from './components/Header/Header';
 import Formulario from './components/Formulario/formulario';
 import MiOrg from './components/MiOrg';
 import Equipo from './components/Equipo';
+import Footer from './components/Footer';
 
 function App() {
 
   const [mostarFormulario, actualizarMostar] = useState(true);
+  const [colaboradores, actualizarColaboradores] = useState([])
 
   // TERNARIO --> condicion ? seMuestra : noSeMuestra;
   // CORTOCIRCUITO --> condicion && seMuestra
+
+  const registrarColaborador= (colaborador) => {
+
+      // SPREAD OPERATOR ( [COPIAR_UNA_INFORMACION, NUEVO_VALOR] )
+      actualizarColaboradores([...colaboradores, colaborador])
+      console.log('Nuevo colaborador: ', colaborador)
+  }
 
   const cambiarMostar = () => {
         actualizarMostar(!mostarFormulario)
@@ -60,12 +69,24 @@ function App() {
   return (
           <div>
             <Header/>
-            {mostarFormulario && <Formulario equipos={equipos.map((equipo) => equipo.titulo)} />}
-            <MiOrg cambiarMostrar={cambiarMostar}/>
-
             {
-              equipos.map( (datosEquipos) => <Equipo key={datosEquipos.titulo} datos={datosEquipos}/>)
+              mostarFormulario && <Formulario 
+                equipos={equipos.map((equipo) => equipo.titulo)}
+                registrarColaborador={registrarColaborador}
+              />
             }
+            <MiOrg cambiarMostrar={cambiarMostar}/>
+            {
+              equipos.map( (equipo) => 
+                <Equipo 
+                  key={equipo.titulo} 
+                  datos={equipo}
+                  colaboradores={colaboradores.filter( colaborador => colaborador.equipo === equipo.titulo)}
+                />
+              )
+            }
+
+            <Footer />
           </div>
   );
 }

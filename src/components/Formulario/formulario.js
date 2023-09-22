@@ -12,6 +12,9 @@ const Formulario = (props) => {
     const [foto, actualizarFoto] = useState("")
     const [equipo, actualizarEquipo] = useState("")
 
+    // DESTRUCTURACIÓN
+    const { registrarColaborador } = props
+
     // ACA MOSTRAMOS O VEMOS EL VALOR DEL ESTADO
     // OSEA LE QUITAMOS LA RESPONSABILIDAD A NUESTRO NAVEGADOR 
     const manejoEnvio = (event) =>{
@@ -20,10 +23,9 @@ const Formulario = (props) => {
             nombre,
             puesto,
             foto,
-            equipo
+            equipo,
         }
-
-        console.log(DatosEnviar)
+        registrarColaborador(DatosEnviar)
     } 
 
     return  <section className='formulario'>
