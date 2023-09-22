@@ -6,15 +6,15 @@ const Footer = () => {
             <a href='https://www.julianddress.com/'>
                 <img src="/img/facebook.png" alt='Facebook' />
             </a>
-            <a href='https://www.julianddres.com/'>
+            <a href='https://twitter.com/Julianddres'>
                 <img src="/img/twitter.png" alt='twitter' />
             </a>
-            <a href='https://www.julianddres.com/'>
+            <a href='https://www.instagram.com/julianddres/'>
                 <img src="/img/instagram.png" alt='instagram' />
             </a>
         </div>
         <img src='/img/Logo.png' alt='org' />
-        <strong>Desarrollado por Alura</strong>
+        <strong>Desarrollado por Julian Motta</strong>
     </footer>
 }
 

@@ -1,9 +1,16 @@
 .equipo{
+    position: relative;
     box-sizing: border-box;
     text-align: center;
     font-size: 32px;
     padding: 32px;
     width: 100%;
+}
+
+.input-color{
+    position: absolute;
+    top: 20px;
+    right: 30px;
 }
 
 .equipo h3{
