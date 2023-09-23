@@ -1,7 +1,10 @@
-import './campoTexto.css'
+import './campo.css'
 
-const CampoTexto = (props) =>{
+const Campo = (props) =>{
 
+    const { type = 'text' } = props
+
+    console.log(type);
     // OBTENEMOS EL VALOR DE LOS INPUTS APARTIR DEL PROP.
     // OSEA EL ESTADO DEL HOOK QUE CREAMOS EN FORMULARIO
     const manejarCambio = (e) => {
@@ -10,7 +13,7 @@ const CampoTexto = (props) =>{
 
     const placeholderModificado = `${props.placeholder}`
 
-    return  <div className='campo-texto'>
+    return  <div className={`campo campo-${type}`}>
                 <label >
                     {props.titulo}
                 </label>
@@ -19,8 +22,9 @@ const CampoTexto = (props) =>{
                     required={props.required}
                     value={props.valor}
                     onChange={manejarCambio}
+                    type={type}
                 />
             </div>
 } 
 
-export  default CampoTexto
+export  default Campo

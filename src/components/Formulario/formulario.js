@@ -1,5 +1,5 @@
 import './formulario.css'
-import CampoTexto  from '../CampoTexto'
+import Campo  from '../Campo'
 import ListaOpciones from '../ListaOpciones'
 import Boton from '../Boton'
 import { useState } from 'react'
@@ -12,13 +12,16 @@ const Formulario = (props) => {
     const [foto, actualizarFoto] = useState("")
     const [equipo, actualizarEquipo] = useState("")
 
+    const [titulo, actualizarTitulo] = useState("")
+    const [color, actualizarColor] = useState("")
+
     // DESTRUCTURACIÓN
-    const { registrarColaborador } = props
+    const { registrarColaborador, crearEquipo} = props
 
     // ACA MOSTRAMOS O VEMOS EL VALOR DEL ESTADO
     // OSEA LE QUITAMOS LA RESPONSABILIDAD A NUESTRO NAVEGADOR 
-    const manejoEnvio = (event) =>{
-        event.preventDefault()
+    const manejoEnvio = (e) =>{
+        e.preventDefault()
         const DatosEnviar = {
             nombre,
             puesto,
@@ -28,24 +31,29 @@ const Formulario = (props) => {
         registrarColaborador(DatosEnviar)
     } 
 
+    const manejarNuevoEquipo = (e) =>{
+        e.preventDefault()
+        crearEquipo({titulo, cardColor: color})
+    }
+
     return  <section className='formulario'>
                 <form onSubmit={manejoEnvio}>
                     <h2>Rellena el formulario para crear el colaborador</h2>
-                    <CampoTexto 
+                    <Campo 
                         titulo='Nombre' 
                         placeholder='Registrar Nombre' 
                         required
                         valor={nombre}
                         actualizarValor={actualizarNombre}
                     />
-                    <CampoTexto 
+                    <Campo 
                         titulo='Puesto' 
                         placeholder='Registrar Puesto' 
                         required
                         valor={puesto}
                         actualizarValor={actualizarPuesto}
                     />
-                    <CampoTexto 
+                    <Campo 
                         titulo='Foto' 
                         placeholder='Registrar enlace de foto ' 
                         required
@@ -58,6 +66,25 @@ const Formulario = (props) => {
                         equipo={props.equipos}
                     />
                     <Boton>Enviar</Boton>
+                </form>
+                <form onSubmit={manejarNuevoEquipo}>
+                    <h2>Rellena el formulario para crear el equipo</h2>
+                    <Campo 
+                        titulo='Titulo' 
+                        placeholder='Registrar titulo' 
+                        required
+                        valor={titulo}
+                        actualizarValor={actualizarTitulo}
+                    />
+                    <Campo 
+                        titulo='Color' 
+                        placeholder='Registrar color en Hex' 
+                        required
+                        valor={color}
+                        actualizarValor={actualizarColor}
+                        type="color"
+                    />
+                    <Boton>Registar Equipo</Boton>
                 </form>
             </section>
 }
